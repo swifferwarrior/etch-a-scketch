@@ -1,10 +1,35 @@
 const body = document.getElementById('body');
-const main = document.createElement('main');
+const main = document.getElementById('main');
 const div = document.createElement('div');
-const row = document.createElement('div');
 const square = document.createElement('div');
+// const row = document.createElement('div');
 
-square.setAttribute('style', 'width: 50px; height: 50px; background-color: black; display: inline-block'); //square is a 50*50 grey blocks that line up
+body.style.backgroundColor = "black";
+main.style.backgroundColor = 'grey';
+square.setAttribute('class', 'square');
+square.setAttribute('style', 'width: 50px; height: 50px; background-color: black; display: inline-block;'); //square is a 50*50 grey blocks that line up
+// body.appendChild(main);
+main.appendChild(div);
+div.setAttribute('id', 'sketchboard');
+
+for(i=0; i < 16; i++){
+    let row = document.createElement('div')
+    row.setAttribute('class', 'row');
+    // row.setAttribute('style', 'margin: auto;')
+    sketchboard.appendChild(row);
+};
+
+const rowElement = document.getElementsByClassName('row');
+rowElement.appendChild(square);
+// const sketchboard = document.getElementById('sketchboard');
+for (rowElement in div) {
+    // row.setAttribute('display', 'block');
+    
+    for(j=0; j < 16; j++){
+        row.appendChild(square);
+    }
+};
+
 row.style.display = 'block'; //each row is on its own line
 // const div = Document.createElement('div');
 // const main = Document.createElement('main');
@@ -12,27 +37,12 @@ row.style.display = 'block'; //each row is on its own line
 // html.querySelector(body);
 // let main = document.getElementsByTagName('main');
 
-body.appendChild(main);
-body.style.backgroundColor = "black";
-main.style.backgroundColor = 'grey';
-
-main.appendChild(div);
-div.setAttribute('id', 'sketchboard');
 div.style.border = '1px solid white';
 // div.style.display = 'grid';
 
 row.style.gridArea = 'row';
 
-for(i=0; i < 16; i++){
-    div.appendChild('row');
-};
 
-for (row in div) {
-    // row.setAttribute('display', 'block');
-    for(j=0; j < 16; j++){
-        row.appendChild('square');
-    }
-};
 col.setAttribute(':hover', "background-color: white");
 // div.setAttribute('style', 'display: grid; grid-template-columns: repeat(16, fr); border: 1px solid white');
 // div.style.gridTemplateColumns = 'repeat(16, 50px)';

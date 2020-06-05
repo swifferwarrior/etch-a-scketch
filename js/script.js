@@ -16,7 +16,7 @@ square.setAttribute('class', 'square');
 for (i = 0; i < 16; i++) {
     let row = document.createElement('div')
     row.setAttribute('class', 'row');
-    row.setAttribute('style', 'height: 20px; margin: 1px;')
+    row.setAttribute('style', 'height: 22px; margin: 2px;')
     for (j = 0; j < 16; j++) {
         let square = document.createElement('div');
         square.setAttribute('class', 'square');
@@ -27,8 +27,8 @@ for (i = 0; i < 16; i++) {
         row.appendChild(square);
 
         let rowElement = document.getElementsByClassName('row');
-        let test = 'testing';
-        rowElement.innerHTML = test;
+        // let test = 'testing';
+        // rowElement.innerHTML = test;
     };
     sketchboard.appendChild(row);
 };

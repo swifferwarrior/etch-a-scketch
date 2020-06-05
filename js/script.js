@@ -13,16 +13,19 @@ main.appendChild(div);
 div.setAttribute('id', 'sketchboard');
 square.setAttribute('class', 'square');
 
-for(i=0; i < 16; i++){
+for (i = 0; i < 16; i++) {
     let row = document.createElement('div')
     row.setAttribute('class', 'row');
     row.setAttribute('style', 'height: 20px; margin: 1px;')
-    for (j=0; j < 16; j++){
+    for (j = 0; j < 16; j++) {
         let square = document.createElement('div');
         square.setAttribute('class', 'square');
         square.setAttribute('style', 'width: 20px; height: 20px; background-color: grey; display: inline-block; margin: 1px;'); //square is a 50*50 grey blocks that line up
+        square.addEventListener('mouseover', function() {
+            square.style.backgroundColor = 'white';
+        });
         row.appendChild(square);
-        
+
         let rowElement = document.getElementsByClassName('row');
         let test = 'testing';
         rowElement.innerHTML = test;
@@ -34,8 +37,5 @@ for(i=0; i < 16; i++){
 div.style.border = '1px solid white';
 
 
-
-document.getElementsByClassName('square').addEventListener('mouseover', function(){
-    Element.style.backgroundColor='white';
-});
+/* getElementsByClassName() returns an HTML collection (array) */
 

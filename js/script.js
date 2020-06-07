@@ -66,7 +66,22 @@ function reset() {
 };
 
 function newGrid(){
-    sketchboard.innerHTML = "";
+    // sketchboard.innerHTML = "";
+    // console.log('Sending popup');
+    // console.log('How many squares?');
+    // let number = prompt('How many? _');
+    // console.log('Changing grid size to ' + number);
+    // grid(number);
+
+    let newDiv = document.createElement('p');
+    let howMany = "<p>HOW MANY SQUARES? </p>"
+    let caret = "<p>_</p>";
+    
+    newDiv = howMany + caret;
+    sketchboard.innerHTML = newDiv;
+    menu.innerHTML = "<button>ACCEPT</button>";
+    sketchboard.appendChild(howMany);
+
     console.log('Sending popup');
     console.log('How many squares?');
     let number = prompt('How many? _');

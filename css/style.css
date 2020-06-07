@@ -1,45 +1,36 @@
+html, main, body {
+    height: 100%;
+}
 body {
     background: url(../images/pngkey.com-boarders-png-790045.png) no-repeat center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    /* height: 100%; */
-    /* display: block; */
-    /* position: bottom; */
-    
-}
-
-html, main, body {
-    height: 100%;
-    min-width: 1330px;
 }
 
 main{
-    width: 50%;
+    width: 100%;
     margin: auto;
     text-align: center;
 }
 
 #sketchboard{
     display: block;
+    justify-content: center;
     position: relative;
-    top: 24%;
-    /* width: 45%; */
-    text-align: center;
-    margin: auto;
-    /* left: 25%; */
+    top: 25%;
+    /* text-align: center; */
 }
 
 .row {
     min-width: 590px;
     max-width: 590px;
-    /* width: 50%; */
 }
 
 button{
     display: block;
     position: relative;
     bottom: 32.5%;
-    width: 15%;
+    width: 200px;
     height: 5%;
     background-color: #0F380F ;
     color: #93B20E;
@@ -48,7 +39,6 @@ button{
     border: none;
     margin: auto;
     outline: none;
-    /* text-align: center; */
 }
 
 @font-face {

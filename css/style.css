@@ -10,6 +10,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
+    top: 0;
 }
 
 main{
@@ -19,6 +20,7 @@ main{
     background: url(../images/pngkey.com-boarders-png-790045.png) no-repeat center center fixed;
     padding: 0;
     background-size: cover;
+    display: block;
     /* height: 100%; */
 }
 
@@ -68,15 +70,15 @@ img{
     
 } */
 
-button{
-    width: 200px;
+button, input{
+    width: 150px;
     opacity: 0.7;
     outline: none;
     height: 5%;
     background-color: #0F380F ;
     color: #93B20E;
     border: none;
-    margin: 0 20px;
+    margin: 0 10px;
     padding: 5px 0;
     
 }
@@ -86,13 +88,41 @@ p, button, input {
     font-family: 'Press Start 2P', Courier, monospace;
 }
 
-input, p{
+p{
     background: none;
     border: none;
     color: #0F380F;
     text-align: center;
     padding: 10px;
 }
+
+#enter{
+    display: none;
+}
+/* .cursor {
+	position: relative;
+}
+.cursor	i {
+	position: absolute;
+	width: 1px;
+	height: 80%;
+	background-color: gray;
+	left: 5px;
+	top: 10%;
+	animation-name: blink;
+	animation-duration: 800ms;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+
+.cursor input:focus + i {
+	display: none;
+} */
+
+/* @keyframes blink {
+	from { opacity: 1; }
+	to { opacity: 0; }
+} */
 
 
 @font-face {

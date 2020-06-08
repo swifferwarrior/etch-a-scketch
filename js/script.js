@@ -2,24 +2,29 @@ const body = document.getElementById('body');
 const main = document.getElementById('main');
 const div = document.createElement('div');
 const square = document.createElement('div');
+const menu = document.getElementById('buttons');
 
-body.style.backgroundColor = "#93B20E";
-// body.style.backgroundImage = "url('../images/pngkey.com-boarders-png-790045.png')";
-main.style.backgroundColor = 'grey';
-// main.setAttribute('style', 'width: 900px; height: 900px;');
-// div.setAttribute('style', 'width: 900px; height: 900px;');
-// body.setAttribute('style', 'width: auto; height: auto;');
-main.setAttribute('style', 'width: 100%; height: 100%;');
-div.setAttribute('style', 'width: 100%; height: 100%; margin: auto; text-align: center; ');
-main.appendChild(div);
-div.setAttribute('id', 'sketchboard');
-sketchboard.setAttribute('style', 'height: 50%;')
-square.setAttribute('class', 'square');
-
+display();
 // grid(16);
 // grid(5);
 grid(20);
 
+function display(){
+    // sketchboard.innerHTML = "";
+    body.style.backgroundColor = "#93B20E";
+    // body.style.backgroundImage = "url('../images/pngkey.com-boarders-png-790045.png')";
+    main.style.backgroundColor = 'grey';
+    // main.setAttribute('style', 'width: 900px; height: 900px;');
+    // div.setAttribute('style', 'width: 900px; height: 900px;');
+    // body.setAttribute('style', 'width: auto; height: auto;');
+    main.setAttribute('style', 'width: 100%; height: 100%;');
+    div.setAttribute('style', 'width: 100%; height: 100%; margin: auto; text-align: center; ');
+    main.appendChild(div);
+    div.setAttribute('id', 'sketchboard');
+    sketchboard.setAttribute('style', 'height: 50%;')
+    square.setAttribute('class', 'square');
+
+}
 function grid(n){
     let frxHt = (1/n)*75;
     let frxWdt = (1/n)*85;
@@ -75,20 +80,29 @@ function newGrid(){
 
     let newDiv = document.createElement('p');
     let howMany = "<p>HOW MANY SQUARES? </p>"
-    let caret = "<p>_</p>";
+    let caret = "<input type='text' id='value' value='''>";
     
     newDiv = howMany + caret;
     sketchboard.innerHTML = newDiv;
-    menu.innerHTML = "<button>ACCEPT</button>";
-    sketchboard.appendChild(howMany);
+    menu.innerHTML = "<button id='accept'>ACCEPT</button>";
+    document.getElementById('accept').addEventListener('click', function(){
+        newDiv="";
+        display();
+        grid(document.getElementById('value').value);
+    });
+    // sketchboard.appendChild(howMany);
 
-    console.log('Sending popup');
-    console.log('How many squares?');
-    let number = prompt('How many? _');
-    console.log('Changing grid size to ' + number);
-    grid(number);
+    // console.log('Sending popup');
+    // console.log('How many squares?');
+    // // let number = prompt('How many? _');
+    // console.log('Changing grid size to ' + number);
+    // grid(caret.value);
 
 }
+
+// function accept(n){
+//     console.log(n);
+// }
 
 
 // div.style.border = '1px solid white';

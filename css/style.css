@@ -29,8 +29,10 @@ main{
     justify-content: center;
     position: relative;
     top: 25%;
+    max-width: 800px;
     /* z-index: 1; */
-    /* text-align: center; */
+    margin: auto;
+    text-align: center;
 }
 
 img{

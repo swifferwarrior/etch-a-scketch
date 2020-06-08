@@ -36,7 +36,7 @@ function grid(n) {
     for (i = 0; i < n; i++) { //height
         let row = document.createElement('div')
         row.setAttribute('class', 'row');
-        row.setAttribute('style', 'padding: 0.5px; margin: auto;')
+        row.setAttribute('style', 'padding: 0.5px; margin: auto; width: 100%')
         row.style.height = frxHt + "%";
         // row.style.width = "20%";
         for (j = 0; j < n; j++) { //width
@@ -85,12 +85,12 @@ function newGrid() {
 
     let newDiv = document.createElement('div');
     let howMany = "<p>HOW MANY SQUARES? </p>"
-    let value = "<input type='text' id='value' placeholder='_' autofocus>";
+    let value = newInput();
     let minmax = "<p>MIN = 1   MAX = 20</p>";
     let gridbutton = document.getElementById('grid');
     let reset = document.getElementById('reset');
     let enter = document.getElementById('enter');
-
+    
     newDiv.setAttribute('id', 'cursor')
     newDiv = howMany + value + minmax;
     sketchboard.innerHTML = newDiv;
@@ -98,7 +98,17 @@ function newGrid() {
     enter.style.display = 'inline-block';
     reset.style.display = 'none';
     gridbutton.style.display = 'none';
-    document.getElementById('enter').addEventListener('click', function () {
+    enter.addEventListener('click', hardReturn);
+    body.addEventListener('keypress', function(e){
+        if(e.key === 'Enter'){
+            console.log('enter');
+            hardReturn();
+        } else {
+            return;
+        }
+    });
+
+    function hardReturn() {
         newDiv.innerHTML = "";
         // menu.innerHTML= "";
         // menu.append(gridbutton + reset);
@@ -106,9 +116,14 @@ function newGrid() {
         reset.style.display = 'inline-block';
         gridbutton.style.display = 'inline-block';
         display();
-        grid(document.getElementById('value').value);
-    });
+        let finValue = document.getElementById('value').value;
+        check(finValue);
+        // grid(finValue);
+    };
 
+    function newInput() {
+        return "<input type='text' id='value' placeholder='_' autofocus>";
+    };
     // sketchboard.appendChild(howMany);
 
     // console.log('Sending popup');
@@ -137,4 +152,36 @@ function fail() {
     let audio = new Audio('../images/gb_error.wav');
     audio.play();
 };
+
+function check(value){
+    if(value<1){
+        fail();
+        setTimeout(function(){
+            sketchboard.html = "<p>FALLS BELOW MINIMUM</p>";
+        }, 5000);
+        newGrid();
+    } else if (value > 20){
+        fail();
+        setTimeout(function(){
+            sketchboard = "<p>GOES OVER MAXIMUM</p>";
+        }, 5000);
+        newGrid();
+    } else if (value == NaN){
+        fail();
+        setTimeout(function(){
+            sketchboard = "<p>NOT A NUMBER</p>";
+        }, 5000);
+        newGrid();
+    } else {
+        grid(value);
+    }
+};
+
+// function error(string){
+//     setTimeout(function(){
+//         fail();
+//         sketchboard = <p>FALLS BELOW MINIMUM</p>
+//     });
+// }
+
 
